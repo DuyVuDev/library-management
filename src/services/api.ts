@@ -21,7 +21,7 @@ const processQueue = (error: any, token: string | null = null) => {
 };
 
 const api = axios.create({
-  baseURL: "https://localhost:7117/api", // Update with your actual API URL
+  baseURL: "https://localhost:7117/api",
   headers: {
     "Content-Type": "application/json",
   },

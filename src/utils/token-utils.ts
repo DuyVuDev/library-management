@@ -22,8 +22,8 @@ export const getTokenRemainingTime = (token: string): number => {
   try {
     const payload = JSON.parse(atob(token.split(".")[1]));
     const exp = payload.exp * 1000; // Convert to milliseconds
-
-    return Math.max(0, Math.floor((exp - Date.now()) / 1000));
+    const now = Date.now();
+    return Math.max(0, Math.floor((exp - now) / 1000));
   } catch (error) {
     console.error("Error getting token remaining time:", error);
     return 0;

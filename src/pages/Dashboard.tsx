@@ -447,9 +447,15 @@ const Dashboard = () => {
                       }
                     >
                       <ListItemText
-                        primary={`Request Id ${detail.bookBorrowingRequestId}`}
+                        primary={
+                          <StatusChip
+                            status={detail.borrowingStatus}
+                            type="borrowing"
+                          />
+                        }
                         secondary={
                           <Box
+                            component="span"
                             sx={{
                               display: "flex",
                               alignItems: "center",
@@ -458,10 +464,10 @@ const Dashboard = () => {
                             }}
                           >
                             <span>{detail.bookTitle}</span>
-                            <StatusChip
-                              status={detail.borrowingStatus}
-                              type="borrowing"
-                            />
+                            <br />
+                            <span>
+                              Request Id: {detail.bookBorrowingRequestId}
+                            </span>
                           </Box>
                         }
                       />

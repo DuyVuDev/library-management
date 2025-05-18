@@ -15,14 +15,10 @@ const RoleProtectedRoute = ({
   requiredRole,
   redirectTo = "/",
 }: RoleProtectedRouteProps) => {
-  const { user, isAuthenticated, isLoading } = useAuth();
+  const { user, isLoading } = useAuth();
 
   if (isLoading) {
     return <div>Loading...</div>;
-  }
-
-  if (!isAuthenticated) {
-    return <Navigate to="/login" />;
   }
 
   // Check if user has the required role

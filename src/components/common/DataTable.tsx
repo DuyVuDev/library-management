@@ -14,6 +14,7 @@ import {
   CircularProgress,
   TablePagination,
 } from "@mui/material";
+import { PagedResultResponseDTO } from "../../types/pagination";
 
 export interface Column<T> {
   id: string;
@@ -33,13 +34,6 @@ interface DataTableProps<T> {
   error?: string | null;
   onPageChange: (page: number) => void; // Callback for page change
   onRowsPerPageChange: (rowsPerPage: number) => void; // Callback for rows per page change
-}
-
-export interface PagedResultResponseDTO<T> {
-  totalCount: number;
-  pageSize: number;
-  pageNumber: number;
-  items: T[];
 }
 
 export function DataTable<T>({

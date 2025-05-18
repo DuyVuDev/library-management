@@ -190,6 +190,7 @@ const Requests = () => {
   };
 
   const handleCloseBookDetail = () => {
+    fetchRequestDetails(selectedRequest?.id);
     setBookDetailOpen(false);
     setSelectedDetail(null);
   };
@@ -206,7 +207,7 @@ const Requests = () => {
       };
 
       await requestService.requestBookAction(actionRequest);
-      handleCloseBookDetail();
+
       // Refresh the data
       if (selectedRequest) {
         const updatedRequest = await requestService.getRequestById(
@@ -253,7 +254,7 @@ const Requests = () => {
       };
 
       await requestService.approveBookAction(approvalRequest);
-      handleCloseBookDetail();
+
       // Refresh the data
       if (selectedRequest) {
         const updatedRequest = await requestService.getRequestById(
@@ -537,7 +538,7 @@ const Requests = () => {
                 </Button>
               </>
             )}
-          <Button onClick={handleCloseBookDetail}>Close</Button>
+          <Button onClick={() => handleCloseBookDetail()}>Close</Button>
         </DialogActions>
       </Dialog>
 
